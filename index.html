@@ -47,11 +47,22 @@
             background-size: 200px 200px;
             animation: twinkle 8s infinite linear, float 30s infinite reverse linear;
         }
-        .fade-to-black-overlay {
+        /* .fade-to-black-overlay {
             position: absolute; bottom: 0; left: 0; width: 100%; height: 200px;
             background: linear-gradient(to bottom, rgba(5,7,20,0) 0%, rgba(0,0,0,0.8) 100%);
             pointer-events: none; z-index: 5;
+        } */
+         .fade-to-black-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;   /* was 200px */
+            background: linear-gradient(to bottom, rgba(5,7,20,0) 0%, rgba(0,0,0,0.6) 100%);
+            pointer-events: none;
+            z-index: 5;
         }
+
         @keyframes twinkle { 0%, 100% { opacity: 0.8; } 50% { opacity: 1; } }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
         
@@ -137,7 +148,8 @@
     <div class="star-background"></div>
     <div class="fade-to-black-overlay"></div>
     
-    <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32">
+    <!-- <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32"> -->
+        <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10">
         <!-- Header -->
         <div class="text-center max-w-3xl mx-auto mb-12 fade-in-up" style="animation-delay: 0.1s;">
             <span class="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-medium text-white/70 backdrop-blur mb-4">Our Pricing</span>
@@ -161,303 +173,910 @@
                     </svg>
                     Mobile Apps
                 </div>
+                <div class="toggle-option" data-target="ai-ads" id="aiAdsToggle">
+                    <svg class="w-4 h-4 inline-block mr-2 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                    </svg>
+                    AI Ads
+                </div>
+                <div class="toggle-option" data-target="automations" id="automationsToggle">
+                    <svg class="w-4 h-4 inline-block mr-2 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    Automations
+                </div>
             </div>
         </div>
 
         <!-- Website Pricing Content -->
         <div id="websitePricing" class="pricing-content active">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Standard Plan -->
-                <div class="pricing-card rounded-2xl p-8 fade-in-up flex flex-col" style="animation-delay: 0.3s;">
-                    <div class="mb-6 relative z-10">
-                        <h3 class="text-xl font-medium text-white mb-2">Standard</h3>
-                        <div class="flex items-baseline gap-1"><span class="text-3xl md:text-4xl font-bold text-white">₹20,000</span></div>
-                        <span class="text-sm text-white/50">Starting price</span>
-                        <p class="mt-4 text-sm text-white/70 leading-relaxed min-h-[40px]">Perfect for small businesses and startups needing a professional web presence.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Standard Plan -->
+        <div class="pricing-card rounded-2xl p-6 fade-in-up flex flex-col" style="animation-delay: 0.3s;">
+            <div class="mb-6 relative z-10">
+                <h3 class="text-xl font-medium text-white mb-2">Standard</h3>
+                <div class="flex items-baseline gap-1">
+                    <span class="text-3xl md:text-4xl font-bold text-white">₹19,999</span>
+                </div>
+                <span class="text-sm text-white/50">Starting price</span>
+                <p class="mt-4 text-sm text-white/70 leading-relaxed min-h-[40px]">
+                    Perfect for startups, blogs, portfolios, and simple e-commerce stores.
+                </p>
+            </div>
+            
+            <div class="flex-grow relative z-10">
+                <div class="mb-6 pb-4 border-b border-white/10">
+                    <p class="text-xs font-semibold text-blue-400 uppercase tracking-wide mb-3">Best For</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs px-2 py-1 rounded-full bg-white/5 text-white/70">Landing Pages</span>
+                        <span class="text-xs px-2 py-1 rounded-full bg-white/5 text-white/70">Blogs</span>
+                        <span class="text-xs px-2 py-1 rounded-full bg-white/5 text-white/70">Portfolios</span>
+                        <span class="text-xs px-2 py-1 rounded-full bg-white/5 text-white/70">Small E-commerce</span>
                     </div>
-                    <div class="flex-grow relative z-10">
-                        <ul class="space-y-4 mb-8">
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                5-7 Page Website (Next.js/React)
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Mobile Responsive Design
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Basic SEO Setup
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Contact Form Integration
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                2 Rounds of Revisions
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                1 Month Bug Support
-                            </li>
-                        </ul>
-                    </div>
-                    <button class="w-full py-3 px-6 rounded-xl font-medium text-sm transition-all btn-glow bg-white/5 hover:bg-white/10 text-white border border-white/10">Get Started</button>
                 </div>
 
-                <!-- Plus Plan -->
-                <div class="pricing-card popular rounded-2xl p-8 fade-in-up flex flex-col" style="animation-delay: 0.4s;">
-                    <div class="absolute top-0 right-0 -mt-3 -mr-3 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full border border-blue-400 shadow-lg shadow-blue-900/50 z-20">MOST POPULAR</div>
-                    <div class="mb-6 relative z-10">
-                        <h3 class="text-xl font-medium text-white mb-2">Plus</h3>
-                        <div class="flex items-baseline gap-1"><span class="text-3xl md:text-4xl font-bold text-white">₹50,000</span></div>
-                        <span class="text-sm text-white/50">Starting price</span>
-                        <p class="mt-4 text-sm text-white/70 leading-relaxed min-h-[40px]">Advanced features for businesses requiring custom functionality and automation.</p>
-                    </div>
-                    <div class="flex-grow relative z-10">
-                        <ul class="space-y-4 mb-8">
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                10-15 Page Dynamic Website
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Premium Custom UI/UX
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                CMS Integration (Admin Panel)
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Payment Gateway Integration
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Advanced SEO & Analytics
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                3 Months Priority Support
-                            </li>
-                        </ul>
-                    </div>
-                    <button class="w-full py-3 px-6 rounded-xl font-medium text-sm transition-all btn-glow bg-blue-600 hover:bg-blue-500 text-white border border-blue-500">Get Plus Plan</button>
-                </div>
-
-                <!-- Pro Plan -->
-                <div class="pricing-card rounded-2xl p-8 fade-in-up flex flex-col" style="animation-delay: 0.5s;">
-                    <div class="mb-6 relative z-10">
-                        <h3 class="text-xl font-medium text-white mb-2">Pro</h3>
-                        <div class="flex items-baseline gap-1"><span class="text-3xl md:text-4xl font-bold text-white">Custom</span></div>
-                        <span class="text-sm text-white/50">Enterprise solutions</span>
-                        <p class="mt-4 text-sm text-white/70 leading-relaxed min-h-[40px]">Full digital ecosystem with AI automation and enterprise architecture.</p>
-                    </div>
-                    <div class="flex-grow relative z-10">
-                        <ul class="space-y-4 mb-8">
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Unlimited Pages & Features
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                AI Agents & Chatbot Integration
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Custom Backend & API
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Multi-Vendor/SaaS Platform
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Scalable Cloud Infrastructure
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                6 Months Dedicated Support
-                            </li>
-                        </ul>
-                    </div>
-                    <button class="w-full py-3 px-6 rounded-xl font-medium text-sm transition-all btn-glow bg-white/5 hover:bg-white/10 text-white border border-white/10">Contact Sales</button>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">5-7 Pages</span>
+                            <p class="text-xs text-white/60 mt-0.5">Responsive website</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">E-commerce Ready</span>
+                            <p class="text-xs text-white/60 mt-0.5">Product catalog, cart, checkout flow</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Payment Integration</span>
+                            <p class="text-xs text-white/60 mt-0.5">Razorpay/Stripe gateway setup</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Basic Admin Dashboard</span>
+                            <p class="text-xs text-white/60 mt-0.5">Manage products, orders, content</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">User Authentication</span>
+                            <p class="text-xs text-white/60 mt-0.5">Email/password login system</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">SEO Optimization</span>
+                            <p class="text-xs text-white/60 mt-0.5">Meta tags, sitemap, analytics setup</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Contact Forms</span>
+                            <p class="text-xs text-white/60 mt-0.5">Lead collector</p>
+                        </div>
+                    </li>
+                </ul>
+                
+                <div class="text-xs text-white/50 mb-4">
+                    ⏱ Delivery: 7-10 days
                 </div>
             </div>
+            
+            <button class="w-full py-3 px-6 rounded-xl font-medium text-sm transition-all btn-glow bg-white/5 hover:bg-white/10 text-white border border-white/10">Get Started</button>
         </div>
 
+        <!-- Plus Plan -->
+        <div class="pricing-card popular rounded-2xl p-6 fade-in-up flex flex-col" style="animation-delay: 0.4s;">
+            <div class="absolute top-0 right-0 -mt-3 -mr-3 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full border border-blue-400 shadow-lg shadow-blue-900/50 z-20">MOST POPULAR</div>
+            
+            <div class="mb-6 relative z-10">
+                <h3 class="text-xl font-medium text-white mb-2">Plus</h3>
+                <div class="flex items-baseline gap-1">
+                    <span class="text-3xl md:text-4xl font-bold text-white">₹39,999</span>
+                </div>
+                <span class="text-sm text-white/50">Starting price</span>
+                <p class="mt-4 text-sm text-white/70 leading-relaxed min-h-[40px]">
+                    Advanced e-commerce with automation, analytics, and AI-powered features.
+                </p>
+            </div>
+            
+            <div class="flex-grow relative z-10">
+                <div class="mb-6 pb-4 border-b border-white/10">
+                    <p class="text-xs font-semibold text-blue-400 uppercase tracking-wide mb-3">Everything in Standard, Plus</p>
+                </div>
+
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">10-15 Dynamic Pages</span>
+                            <p class="text-xs text-white/60 mt-0.5">Custom UI/UX design system</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Advanced Admin Dashboard</span>
+                            <p class="text-xs text-white/60 mt-0.5">Revenue tracking, sales reports, inventory analytics</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">AI Improvement Suggestions</span>
+                            <p class="text-xs text-white/60 mt-0.5">Automated insights for conversion optimization</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Package Tracking System</span>
+                            <p class="text-xs text-white/60 mt-0.5">Real-time order status updates</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Automated Email Receipts</span>
+                            <p class="text-xs text-white/60 mt-0.5">Order confirmations, invoices, shipping updates</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">OTP Authentication</span>
+                            <p class="text-xs text-white/60 mt-0.5">SMS/email verification for secure login</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">AI Chatbot Integration</span>
+                            <p class="text-xs text-white/60 mt-0.5">24/7 customer support automation</p>
+                        </div>
+                    </li>
+                </ul>
+                
+                <div class="text-xs text-white/50 mb-4">
+                    ⏱ Delivery: 2-3 weeks
+                </div>
+            </div>
+            
+            <button class="w-full py-3 px-6 rounded-xl font-medium text-sm transition-all btn-glow bg-blue-600 hover:bg-blue-500 text-white border border-blue-500">Get Plus Plan</button>
+        </div>
+
+        <!-- Pro Plan -->
+        <div class="pricing-card rounded-2xl p-6 fade-in-up flex flex-col" style="animation-delay: 0.5s;">
+            <div class="mb-6 relative z-10">
+                <h3 class="text-xl font-medium text-white mb-2">Pro</h3>
+                <div class="flex items-baseline gap-1">
+                    <span class="text-3xl md:text-4xl font-bold text-white">Custom</span>
+                </div>
+                <span class="text-sm text-white/50">Enterprise solutions</span>
+                <p class="mt-4 text-sm text-white/70 leading-relaxed min-h-[40px]">
+                    Custom SaaS platforms, AI-powered apps, and enterprise-level systems.
+                </p>
+            </div>
+            
+            <div class="flex-grow relative z-10">
+                <div class="mb-6 pb-4 border-b border-white/10">
+                    <p class="text-xs font-semibold text-blue-400 uppercase tracking-wide mb-3">Best For</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs px-2 py-1 rounded-full bg-white/5 text-white/70">SaaS Platforms</span>
+                        <span class="text-xs px-2 py-1 rounded-full bg-white/5 text-white/70">Marketplaces</span>
+                        <span class="text-xs px-2 py-1 rounded-full bg-white/5 text-white/70">AI Apps</span>
+                        <span class="text-xs px-2 py-1 rounded-full bg-white/5 text-white/70">Enterprise</span>
+                    </div>
+                </div>
+
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Unlimited Pages & Features</span>
+                            <p class="text-xs text-white/60 mt-0.5">Fully custom architecture</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Custom SaaS Platform</span>
+                            <p class="text-xs text-white/60 mt-0.5">Multi-tenancy, subscription billing, role-based access</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Full AI Integration</span>
+                            <p class="text-xs text-white/60 mt-0.5">AI agents, predictive analytics, NLP, computer vision</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Microservices Backend</span>
+                            <p class="text-xs text-white/60 mt-0.5">Custom APIs, scalable cloud infrastructure (AWS/GCP)</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Multi-Vendor Marketplace</span>
+                            <p class="text-xs text-white/60 mt-0.5">Vendor dashboards, payment splitting, commission management</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Real-Time Features</span>
+                            <p class="text-xs text-white/60 mt-0.5">WebSocket, live updates, collaborative editing</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Dedicated Project Manager</span>
+                            <p class="text-xs text-white/60 mt-0.5">Weekly updates, priority support</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <button class="w-full py-3 px-6 rounded-xl font-medium text-sm transition-all btn-glow bg-white/5 hover:bg-white/10 text-white border border-white/10">Contact Sales</button>
+        </div>
+    </div>
+</div>
+
+
+            <!-- CTA Footer -->
+            <!-- <div class="mt-16 text-center fade-in-up" style="animation-delay: 0.6s;">
+                <p class="text-white/60 mb-6">Need a custom quote or have questions about our plans?</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="https://calendly.com/omgosavi1499/servexai-discovery-call" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-medium transition-all btn-glow">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                            <line x1="16" x2="16" y1="2" y2="6" />
+                            <line x1="8" x2="8" y1="2" y2="6" />
+                            <line x1="3" x2="21" y1="10" y2="10" />
+                        </svg>
+                        <span>Book Free Consultation</span>
+                    </a>
+                    <a href="tel:918446526753" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-white/90 hover:text-white transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></svg>
+                        <span>+91 84465 26753</span>
+                    </a>
+                </div>
+            </div> -->
+        </div>
+
+        
         <!-- Mobile Apps Pricing Content -->
-        <div id="mobilePricing" class="pricing-content">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <!-- Plus Plan -->
-                <div class="pricing-card popular rounded-2xl p-8 fade-in-up flex flex-col" style="animation-delay: 0.3s;">
-                    <div class="absolute top-0 right-0 -mt-3 -mr-3 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full border border-blue-400 shadow-lg shadow-blue-900/50 z-20">MOST POPULAR</div>
-                    <div class="mb-6 relative z-10">
-                        <h3 class="text-xl font-medium text-white mb-2">Plus</h3>
-                        <div class="flex items-baseline gap-1"><span class="text-3xl md:text-4xl font-bold text-white">₹2.5 Lakhs</span></div>
-                        <span class="text-sm text-white/50">Starting price</span>
-                        <p class="mt-4 text-sm text-white/70 leading-relaxed min-h-[40px]">Perfect for startups, e-commerce, and booking platforms with essential features.</p>
+<div id="mobilePricing" class="pricing-content">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- Plus Plan -->
+        <div class="pricing-card popular rounded-2xl p-6 fade-in-up flex flex-col" style="animation-delay: 0.3s;">
+            <div class="absolute top-0 right-0 -mt-3 -mr-3 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full border border-blue-400 shadow-lg shadow-blue-900/50 z-20">MOST POPULAR</div>
+            
+            <div class="mb-6 relative z-10">
+                <h3 class="text-xl font-medium text-white mb-2">Plus</h3>
+                <div class="flex items-baseline gap-1">
+                    <span class="text-3xl md:text-4xl font-bold text-white">₹19,999</span>
+                </div>
+                <span class="text-sm text-white/50">Starting price</span>
+                <p class="mt-4 text-sm text-white/70 leading-relaxed min-h-[40px]">
+                    Complete cross-platform apps for e-commerce, services, and booking platforms.
+                </p>
+            </div>
+            
+            <div class="flex-grow relative z-10">
+                <div class="mb-6 pb-4 border-b border-white/10">
+                    <p class="text-xs font-semibold text-blue-400 uppercase tracking-wide mb-3">Best For</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs px-2 py-1 rounded-full bg-white/5 text-white/70">E-commerce</span>
+                        <span class="text-xs px-2 py-1 rounded-full bg-white/5 text-white/70">Booking Apps</span>
+                        <span class="text-xs px-2 py-1 rounded-full bg-white/5 text-white/70">Service Apps</span>
+                        <span class="text-xs px-2 py-1 rounded-full bg-white/5 text-white/70">Real Estate</span>
                     </div>
-                    <div class="flex-grow relative z-10">
-                        <ul class="space-y-4 mb-8">
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                iOS & Android (React Native/Flutter)
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Up to 15-20 screens
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Custom UI/UX Design (Brand-Aligned)
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Payment Gateway (Razorpay/Stripe)
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Push Notifications & In-App Messaging
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Google Maps & Location Services
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Admin Dashboard (Web-Based)
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Search, Filters, Ratings & Reviews
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Custom Backend (Node.js/Python)
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                App Store & Play Store Deployment
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                60 Days Post-Launch Support
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Timeline: 8-12 weeks
-                            </li>
-                        </ul>
-                        <div class="border-t border-white/10 pt-4 mt-4">
-                            <p class="text-xs text-white/60 mb-2">Examples:</p>
-                            <p class="text-xs text-white/50">E-commerce store, Food delivery, Salon booking, Fitness studio, Real estate listings</p>
-                        </div>
-                    </div>
-                    <button class="w-full py-3 px-6 rounded-xl font-medium text-sm transition-all btn-glow bg-blue-600 hover:bg-blue-500 text-white border border-blue-500">Get Plus Plan</button>
                 </div>
 
-                <!-- Pro Plan -->
-                <div class="pricing-card rounded-2xl p-8 fade-in-up flex flex-col" style="animation-delay: 0.4s;">
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">iOS & Android Apps</span>
+                            <p class="text-xs text-white/60 mt-0.5"></p>Cross-platform development</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">10-12 Custom Screens</span>
+                            <p class="text-xs text-white/60 mt-0.5">Splash, home, product listing, cart, profile, orders, etc.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Custom UI/UX Design</span>
+                            <p class="text-xs text-white/60 mt-0.5">Brand-aligned design system with smooth animations</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Payment Gateway Integration</span>
+                            <p class="text-xs text-white/60 mt-0.5">Razorpay, Stripe, PayU - secure in-app purchases</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">User Authentication</span>
+                            <p class="text-xs text-white/60 mt-0.5">Email/Phone OTP, social login (Google, Facebook, Apple)</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Push Notifications</span>
+                            <p class="text-xs text-white/60 mt-0.5">Firebase Cloud Messaging for order updates, offers</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Web Admin Dashboard</span>
+                            <p class="text-xs text-white/60 mt-0.5">Manage products, orders, users, content, and inventory</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Search, Filters & Sorting</span>
+                            <p class="text-xs text-white/60 mt-0.5">Advanced product/service search with category filters</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Ratings & Reviews System</span>
+                            <p class="text-xs text-white/60 mt-0.5">Customer feedback, star ratings, review moderation</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Order/Booking Management</span>
+                            <p class="text-xs text-white/60 mt-0.5">Track orders, appointment scheduling, order history</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">App & Play Store Deployment</span>
+                            <p class="text-xs text-white/60 mt-0.5">playstore and appstore one-time fees no included</p>
+                        </div>
+                    </li>
+                </ul>
+                
+                <div class="border-t border-white/10 pt-4 mt-4 mb-4">
+                    <p class="text-xs text-white/60 mb-2">Perfect for:</p>
+                    <p class="text-xs text-white/50">E-commerce stores, Food delivery, Salon/spa booking, Fitness studio apps, Real estate listing platforms, Service marketplaces</p>
+                </div>
+                
+                <div class="text-xs text-white/50 mb-4">
+                    ⏱ Delivery: 3-4 weeks
+                </div>
+            </div>
+            
+            <button class="w-full py-3 px-6 rounded-xl font-medium text-sm transition-all btn-glow bg-blue-600 hover:bg-blue-500 text-white border border-blue-500">Get Plus Plan</button>
+        </div>
+
+        <!-- Pro Plan -->
+        <div class="pricing-card rounded-2xl p-6 fade-in-up flex flex-col" style="animation-delay: 0.4s;">
+            <div class="mb-6 relative z-10">
+                <h3 class="text-xl font-medium text-white mb-2">Pro</h3>
+                <div class="flex items-baseline gap-1">
+                    <span class="text-3xl md:text-4xl font-bold text-white">₹49,999</span>
+                </div>
+                <span class="text-sm text-white/50">Enterprise solutions</span>
+                <p class="mt-4 text-sm text-white/70 leading-relaxed min-h-[40px]">
+                    AI-powered enterprise apps with advanced automation and real-time features.
+                </p>
+            </div>
+            
+            <div class="flex-grow relative z-10">
+                <div class="mb-6 pb-4 border-b border-white/10">
+                    <p class="text-xs font-semibold text-blue-400 uppercase tracking-wide mb-3">Everything in Plus, Plus</p>
+                </div>
+
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Unlimited Screens & Features</span>
+                            <p class="text-xs text-white/60 mt-0.5">Fully custom architecture tailored to your business</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">AI Chatbot & Virtual Assistant</span>
+                            <p class="text-xs text-white/60 mt-0.5">24/7 automated customer support, voice commands, NLP</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">AI Product Recommendations</span>
+                            <p class="text-xs text-white/60 mt-0.5">Machine learning-powered personalized suggestions</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Predictive Analytics Dashboard</span>
+                            <p class="text-xs text-white/60 mt-0.5">Sales forecasting, user behavior insights, churn prediction</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Real-Time Chat System</span>
+                            <p class="text-xs text-white/60 mt-0.5">1-to-1 and group messaging, typing indicators, read receipts</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Goods Tracking</span>
+                            <p class="text-xs text-white/60 mt-0.5">Real-time delivery tracking</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Multi-Vendor Marketplace</span>
+                            <p class="text-xs text-white/60 mt-0.5">Vendor dashboards, payment splitting, commission management</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Advanced Role-Based Access</span>
+                            <p class="text-xs text-white/60 mt-0.5">Admin, vendor, customer, delivery partner role management</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Enterprise Admin Portal</span>
+                            <p class="text-xs text-white/60 mt-0.5">Advanced analytics, revenue reports, user behavior tracking</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-white/80">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <span class="font-medium text-white">Subscription & Wallet System</span>
+                            <p class="text-xs text-white/60 mt-0.5">In-app wallet, recurring payments, loyalty points</p>
+                        </div>
+                    </li>
+                </ul>
+                
+                <div class="border-t border-white/10 pt-4 mt-4 mb-4">
+                    <p class="text-xs text-white/60 mb-2">Perfect for:</p>
+                    <p class="text-xs text-white/50">AI healthcare platforms, Multi-vendor marketplaces (Amazon-style), On-demand services (Urban Company-style), EdTech with AI tutoring, Social media apps, Fintech/investment platforms</p>
+                </div>
+                
+                <div class="text-xs text-white/50 mb-4">
+                    ⏱ Delivery: 5-6 weeks
+                </div>
+            </div>
+            
+            <button class="w-full py-3 px-6 rounded-xl font-medium text-sm transition-all btn-glow bg-white/5 hover:bg-white/10 text-white border border-white/10">Contact Sales</button>
+        </div>
+    </div>
+</div>
+
+
+         <!-- CTA Footer -->
+            <!-- <div class="mt-16 text-center fade-in-up" style="animation-delay: 0.6s;">
+                <p class="text-white/60 mb-6">Need a custom quote or have questions about our plans?</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="https://calendly.com/omgosavi1499/servexai-discovery-call" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-medium transition-all btn-glow">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                            <line x1="16" x2="16" y1="2" y2="6" />
+                            <line x1="8" x2="8" y1="2" y2="6" />
+                            <line x1="3" x2="21" y1="10" y2="10" />
+                        </svg>
+                        <span>Book Free Consultation</span>
+                    </a>
+                    <a href="tel:918446526753" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-white/90 hover:text-white transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></svg>
+                        <span>+91 84465 26753</span>
+                    </a>
+                </div>
+            </div> -->
+        </div>
+
+    
+        <!-- Automations Pricing Content -->
+        <div id="automationsPricing" class="pricing-content">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Basic Plan -->
+                <div class="pricing-card rounded-2xl p-6 fade-in-up flex flex-col" style="animation-delay: 0.3s;">
                     <div class="mb-6 relative z-10">
-                        <h3 class="text-xl font-medium text-white mb-2">Pro</h3>
-                        <div class="flex items-baseline gap-1"><span class="text-3xl md:text-4xl font-bold text-white">₹5.5 Lakhs+</span></div>
-                        <span class="text-sm text-white/50">Enterprise solutions</span>
-                        <p class="mt-4 text-sm text-white/70 leading-relaxed min-h-[40px]">AI-powered apps with advanced features for enterprise and complex platforms.</p>
+                        <h3 class="text-xl font-medium text-white mb-2">Basic</h3>
+                        <div class="flex items-baseline gap-1"><span class="text-3xl md:text-4xl font-bold text-white">₹10,000</span></div>
+                        <span class="text-sm text-white/50">/month</span>
+                        <p class="mt-4 text-sm text-white/70 leading-relaxed min-h-[40px]">Essential automation workflows for small teams and startups.</p>
                     </div>
                     <div class="flex-grow relative z-10">
                         <ul class="space-y-4 mb-8">
                             <li class="flex items-start gap-3 text-sm text-white/80">
                                 <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Everything in Plus Plan
+                                10 Active Workflows</span>
                             </li>
                             <li class="flex items-start gap-3 text-sm text-white/80">
                                 <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Unlimited screens & features
+                                5,000 Tasks/month</span>
                             </li>
                             <li class="flex items-start gap-3 text-sm text-white/80">
                                 <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                AI Chatbot & Voice Assistant
+                                Email & Social Media Integration</span>
                             </li>
                             <li class="flex items-start gap-3 text-sm text-white/80">
                                 <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Real-Time Chat (1-to-1 & Group)
+                                Basic CRM Integration</span>
                             </li>
                             <li class="flex items-start gap-3 text-sm text-white/80">
                                 <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Video/Audio Calling Integration
+                                Pre-built Templates</span>
                             </li>
                             <li class="flex items-start gap-3 text-sm text-white/80">
                                 <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Live GPS Tracking
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Multi-Vendor Marketplace Support
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                AI Recommendations & Analytics
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Microservices Architecture
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Scalable Cloud Infrastructure (AWS/GCP)
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Enterprise Admin Portal
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                90 Days Support + 3 Months Maintenance
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-white/80">
-                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Timeline: 12-20 weeks
+                                Email Support</span>
                             </li>
                         </ul>
-                        <div class="border-t border-white/10 pt-4 mt-4">
-                            <p class="text-xs text-white/60 mb-2">Examples:</p>
-                            <p class="text-xs text-white/50">AI healthcare platform, Multi-vendor marketplace, On-demand services, EdTech, Social media, Fintech</p>
-                        </div>
                     </div>
-                    <button class="w-full py-3 px-6 rounded-xl font-medium text-sm transition-all btn-glow bg-white/5 hover:bg-white/10 text-white border border-white/10">Contact Sales</button>
+                    <button class="w-full py-3 px-6 rounded-xl font-medium text-sm transition-all btn-glow bg-white/5 hover:bg-white/10 text-white border border-white/10 relative z-10 mt-auto">Get Started</button>
+                </div>
+
+                <!-- Professional Plan (Most Popular) -->
+                <div class="pricing-card pricing-card popular rounded-2xl p-6 fade-in-up flex flex-col" style="animation-delay: 0.4s;">
+                    <div class="absolute top-0 right-0 -mt-3 -mr-3 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full border border-blue-400 shadow-lg shadow-blue-900/50 z-20">MOST POPULAR</div>
+                    <div class="mb-6 relative z-10">
+                        <h3 class="text-xl font-medium text-white mb-2">Professional</h3>
+                        <div class="flex items-baseline gap-1"><span class="text-3xl md:text-4xl font-bold text-white">₹25,000</span></div>
+                        <span class="text-sm text-white/50">/month</span>
+                        <p class="mt-4 text-sm text-white/70 leading-relaxed min-h-[40px]">Advanced automation with AI integration and custom workflows.</p>
+                    </div>
+                    <div class="flex-grow relative z-10">
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                50 Active Workflows</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                25,000 Tasks/month</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                AI-Powered Workflow Optimization</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Advanced CRM, ERP & Database Integration</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Custom Workflow Builder</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Webhook & API Integration</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="w-full py-3 px-6 rounded-xl font-medium text-sm transition-all btn-glow bg-white/5 hover:bg-white/10 text-white border border-white/10 relative z-10 mt-auto">Get Started</button>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="pricing-card rounded-2xl p-6 fade-in-up flex flex-col" style="animation-delay: 0.5s;">
+                    <div class="mb-6 relative z-10">
+                        <h3 class="text-xl font-medium text-white mb-2">Enterprise</h3>
+                        <div class="flex items-baseline gap-1"><span class="text-3xl md:text-4xl font-bold text-white">Custom</span></div>
+                        <span class="text-sm text-white/50">Unlimited scale</span>
+                        <p class="mt-4 text-sm text-white/70 leading-relaxed min-h-[40px]">Complete automation platform with dedicated infrastructure.</p>
+                    </div>
+                    <div class="flex-grow relative z-10">
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Unlimited Workflows</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Unlimited Tasks</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Custom AI Agent Development</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Enterprise System Integration</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Dedicated Cloud Infrastructure</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Dedicated Success Manager</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="w-full py-3 px-6 rounded-xl font-medium text-sm transition-all btn-glow bg-white/5 hover:bg-white/10 text-white border border-white/10 relative z-10 mt-auto">Contact Us</button>
                 </div>
             </div>
         </div>
 
-        <!-- CTA Footer -->
-        <div class="mt-16 text-center fade-in-up" style="animation-delay: 0.6s;">
-            <p class="text-white/60 mb-6">Need a custom quote or have questions about our plans?</p>
+
+            <!-- CTA Footer -->
+            <!-- <div class="mt-16 text-center fade-in-up" style="animation-delay: 0.6s;">
+                <p class="text-white/60 mb-6">Need a custom quote or have questions about our plans?</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="https://calendly.com/omgosavi1499/servexai-discovery-call" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-medium transition-all btn-glow">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                            <line x1="16" x2="16" y1="2" y2="6" />
+                            <line x1="8" x2="8" y1="2" y2="6" />
+                            <line x1="3" x2="21" y1="10" y2="10" />
+                        </svg>
+                        <span>Book Free Consultation</span>
+                    </a>
+                    <a href="tel:918446526753" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-white/90 hover:text-white transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></svg>
+                        <span>+91 84465 26753</span>
+                    </a>
+                </div>
+            </div> -->
+        </div>
+
+        <!-- AI Ads Pricing Content -->
+        <div id="ai-adsPricing" class="pricing-content">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Starter Plan -->
+                <div class="pricing-card rounded-2xl p-6 fade-in-up flex flex-col" style="animation-delay: 0.3s;">
+                    <div class="mb-6 relative z-10">
+                        <h3 class="text-xl font-medium text-white mb-2">Starter</h3>
+                        <div class="flex items-baseline gap-1"><span class="text-3xl md:text-4xl font-bold text-white">₹15,000</span></div>
+                        <span class="text-sm text-white/50">/month</span>
+                        <p class="mt-4 text-sm text-white/70 leading-relaxed min-h-[40px]">Perfect for small businesses starting their AI-powered advertising journey.</p>
+                    </div>
+                    <div class="flex-grow relative z-10">
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                AI-Generated Ad Copy (50/month)</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                AI Image Generation (30 images/month)</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                2 Social Media Platforms</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Basic Performance Analytics</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                A/B Testing (Basic)</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Email Support</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="w-full py-3 px-6 rounded-xl font-medium text-sm transition-all btn-glow bg-white/5 hover:bg-white/10 text-white border border-white/10 relative z-10 mt-auto">Get Started</button>
+                </div>
+
+                <!-- Growth Plan (Most Popular) -->
+                <div class="pricing-card pricing-card popular rounded-2xl p-6 fade-in-up flex flex-col" style="animation-delay: 0.4s;">
+                    <div class="absolute top-0 right-0 -mt-3 -mr-3 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full border border-blue-400 shadow-lg shadow-blue-900/50 z-20">MOST POPULAR</div>
+                    <div class="mb-6 relative z-10">
+                        <h3 class="text-xl font-medium text-white mb-2">Growth</h3>
+                        <div class="flex items-baseline gap-1"><span class="text-3xl md:text-4xl font-bold text-white">₹35,000</span></div>
+                        <span class="text-sm text-white/50">/month</span>
+                        <p class="mt-4 text-sm text-white/70 leading-relaxed min-h-[40px]">Advanced AI ads with video generation and multi-platform campaigns.</p>
+                    </div>
+                    <div class="flex-grow relative z-10">
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                AI-Generated Ad Copy (200/month)</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                AI Image Generation (100 images/month)</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                AI Video Generation (10 videos/month)</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                5+ Social Media Platforms</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Advanced Analytics & Insights</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                AI-Powered Audience Targeting</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="w-full py-3 px-6 rounded-xl font-medium text-sm transition-all btn-glow bg-white/5 hover:bg-white/10 text-white border border-white/10 relative z-10 mt-auto">Get Started</button>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="pricing-card rounded-2xl p-6 fade-in-up flex flex-col" style="animation-delay: 0.5s;">
+                    <div class="mb-6 relative z-10">
+                        <h3 class="text-xl font-medium text-white mb-2">Enterprise</h3>
+                        <div class="flex items-baseline gap-1"><span class="text-3xl md:text-4xl font-bold text-white">Custom</span></div>
+                        <span class="text-sm text-white/50">Tailored solutions</span>
+                        <p class="mt-4 text-sm text-white/70 leading-relaxed min-h-[40px]">Unlimited AI-powered advertising with dedicated account manager.</p>
+                    </div>
+                    <div class="flex-grow relative z-10">
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Unlimited AI Ad Copy</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Unlimited Image & Video Generation</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                All Social Media Platforms</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Custom AI Model Training</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Predictive Analytics & ROI Tracking</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-white/80">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Dedicated Account Manager</span>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <button class="w-full py-3 px-6 rounded-xl font-medium text-sm transition-all btn-glow bg-white/5 hover:bg-white/10 text-white border border-white/10 relative z-10 mt-auto">Contact Us</button>
+                </div>
+            </div>
+  
+                <!-- CTA Footer -->
+                <!-- <div class="mt-16 text-center fade-in-up" style="animation-delay: 0.6s;">
+                    <p class="text-white/60 mb-6">Need a custom quote or have questions about our plans?</p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="https://calendly.com/omgosavi1499/servexai-discovery-call" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-medium transition-all btn-glow">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                                <line x1="16" x2="16" y1="2" y2="6" />
+                                <line x1="8" x2="8" y1="2" y2="6" />
+                                <line x1="3" x2="21" y1="10" y2="10" />
+                            </svg>
+                            <span>Book Free Consultation</span>
+                        </a>
+                        <a href="tel:918446526753" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-white/90 hover:text-white transition-all">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></svg>
+                            <span>+91 84465 26753</span>
+                        </a>
+                    </div>
+                </div> -->
+            </div>
+        </main>
+
+        <!-- GLOBAL CTA FOOTER -->
+        <!-- <div class="mt-6 text-center fade-in-up" style="animation-delay: 0.6s;">
+            <p class="text-white/60 mb-6">
+                Need a custom quote or have questions about our plans?
+            </p>
+
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="https://calendly.com/omgosavi1499/servexai-discovery-call" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-medium transition-all btn-glow">
+
+                <a href="https://calendly.com/omgosavi1499/servexai-discovery-call"
+                target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-medium transition-all btn-glow">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
-                        <line x1="16" x2="16" y1="2" y2="6"/>
-                        <line x1="8" x2="8" y1="2" y2="6"/>
-                        <line x1="3" x2="21" y1="10" y2="10"/>
+                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                        <line x1="16" x2="16" y1="2" y2="6" />
+                        <line x1="8" x2="8" y1="2" y2="6" />
+                        <line x1="3" x2="21" y1="10" y2="10" />
                     </svg>
                     <span>Book Free Consultation</span>
                 </a>
-                <a href="tel:+918446526753" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-white/90 hover:text-white transition-all">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+
+                <a href="tel:918446526753"
+                class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-white/90 hover:text-white transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                    </svg>
                     <span>+91 84465 26753</span>
                 </a>
-            </div>
-        </div>
-    </main>
 
-    <script>
+            </div>
+        </div> -->
+
+        <!-- GLOBAL CTA FOOTER -->
+        <div class="relative z-20 mt-6 text-center fade-in-up" style="animation-delay: 0.6s;">
+
+            <div class="inline-block px-10 py-6 rounded-2xl bg-white/5 backdrop-blur border border-white/10 shadow-xl shadow-blue-900/30">
+                <p class="text-white/80 text-lg mb-5">
+                    Need a custom quote or have questions about our plans?
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+
+                    <a href="https://calendly.com/omgosavi1499/servexai-discovery-call"
+                    target="_blank"
+                    class="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-medium transition-all btn-glow">
+                        📅 Book Free Consultation
+                    </a>
+
+                    <a href="tel:918446526753"
+                    class="inline-flex items-center gap-2 px-7 py-3 rounded-xl rounded-xl border border-white/10 bg-white/10 hover:bg-white/20 text-white transition-all">
+                        📞 +91 84465 26753
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    
+
+
+        <script>
         // Toggle functionality
         const websiteToggle = document.getElementById('websiteToggle');
+        const aiAdsToggle = document.getElementById('aiAdsToggle');
+        const automationsToggle = document.getElementById('automationsToggle');
         const mobileToggle = document.getElementById('mobileToggle');
         const toggleSlider = document.getElementById('toggleSlider');
+
         const websitePricing = document.getElementById('websitePricing');
+        const aiAdsPricing = document.getElementById('ai-adsPricing');
+        const automationsPricing = document.getElementById('automationsPricing');
         const mobilePricing = document.getElementById('mobilePricing');
 
         // Set initial slider position
@@ -470,31 +1089,96 @@
             toggleSlider.style.top = (rect.top - containerRect.top) + 'px';
         }
 
+        // Function to remove all active states
+        function removeAllActive() {
+            websiteToggle.classList.remove('active');
+            aiAdsToggle.classList.remove('active');
+            automationsToggle.classList.remove('active');
+            mobileToggle.classList.remove('active');
+
+            websitePricing.classList.remove('active');
+            aiAdsPricing.classList.remove('active');
+            automationsPricing.classList.remove('active');
+            mobilePricing.classList.remove('active');
+        }
+
         // Initialize slider position
         setSliderPosition(websiteToggle);
 
         // Toggle click handlers
         websiteToggle.addEventListener('click', function() {
+            console.log('Website clicked');
+            removeAllActive();
             websiteToggle.classList.add('active');
-            mobileToggle.classList.remove('active');
             websitePricing.classList.add('active');
-            mobilePricing.classList.remove('active');
             setSliderPosition(websiteToggle);
         });
 
+        aiAdsToggle.addEventListener('click', function() {
+            console.log('AI Ads clicked');
+            removeAllActive();
+            aiAdsToggle.classList.add('active');
+            aiAdsPricing.classList.add('active');
+            setSliderPosition(aiAdsToggle);
+        });
+
+        automationsToggle.addEventListener('click', function() {
+            console.log('Automations clicked');
+            removeAllActive();
+            automationsToggle.classList.add('active');
+            automationsPricing.classList.add('active');
+            setSliderPosition(automationsToggle);
+        });
+
         mobileToggle.addEventListener('click', function() {
+            console.log('Mobile clicked');
+            removeAllActive();
             mobileToggle.classList.add('active');
-            websiteToggle.classList.remove('active');
             mobilePricing.classList.add('active');
-            websitePricing.classList.remove('active');
             setSliderPosition(mobileToggle);
         });
 
         // Recalculate on window resize
         window.addEventListener('resize', function() {
             const activeToggle = document.querySelector('.toggle-option.active');
-            setSliderPosition(activeToggle);
+            if (activeToggle) {
+                setSliderPosition(activeToggle);
+            }
         });
     </script>
+
+    <!-- =========================================
+GLOBAL CONTACT / CTA SECTION
+========================================= -->
+<!-- <div id="contact" class="relative z-20 mt-32 pb-32 text-center">
+
+    <div class="max-w-4xl mx-auto px-6">
+        <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">
+            Let’s Build Something Powerful 🚀
+        </h3>
+
+        <p class="text-white/60 text-lg mb-8">
+            Need a custom quote or want to discuss your project?  
+            Book a call or talk to our team directly.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+            <a href="https://calendly.com/omgosavi1499/servexai-discovery-call"
+               target="_blank"
+               class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-lg transition-all btn-glow">
+                📅 Book Free Consultation
+            </a>
+
+            <a href="tel:918446526753"
+               class="inline-flex items-center gap-3 px-8 py-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-white/90 hover:text-white text-lg transition-all">
+                📞 +91 84465 26753
+            </a>
+        </div>
+    </div>
+
+</div> -->
+
+
+
 </body>
 </html>
